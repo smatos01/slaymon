@@ -1,0 +1,194 @@
+.game-container {
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.game-area {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.game-area h2 {
+  color: #667eea;
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+
+.game-subtitle {
+  color: #888;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.game-notice {
+  background-color: #fff3e0;
+  color: #e65100;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.start-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+  margin-top: 20px;
+}
+
+.start-btn:hover:not(:disabled) {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.4);
+}
+
+.start-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.game-content {
+  margin-top: 30px;
+}
+
+.guess-counter {
+  font-size: 18px;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.game-content form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.game-content input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.game-content input:focus {
+  border-color: #764ba2;
+}
+
+.game-content form button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.game-content form button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+}
+
+.game-content form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.feedback {
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 20px 0;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedback.higher {
+  background: linear-gradient(90deg, #bbdefb, #e3f2fd);
+  color: #1565c0;
+  border-left: 4px solid #1976d2;
+}
+
+.feedback.lower {
+  background: linear-gradient(90deg, #ffe0b2, #fff3e0);
+  color: #e65100;
+  border-left: 4px solid #f57c00;
+}
+
+.result-banner {
+  padding: 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  margin: 20px 0;
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.result-banner.win {
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  color: #7a5c00;
+}
+
+.result-banner.win p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.result-banner.lose {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.result-banner.lose p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+}

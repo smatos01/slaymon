@@ -1,0 +1,152 @@
+.info-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.info-modal-content {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.info-modal-content .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-modal-content .close-btn:hover {
+  background: #ff5252;
+}
+
+.info-modal-content h2 {
+  color: #667eea;
+  margin: 0 0 20px 0;
+  font-size: 26px;
+  text-align: center;
+}
+
+.info-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-section {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.info-section.highlight {
+  border-color: #ffd700;
+  background: linear-gradient(90deg, #fffbe6, #fff8d6);
+}
+
+.info-section-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafaff;
+  border: none;
+  padding: 14px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+}
+
+.info-section.highlight .info-section-header {
+  background: transparent;
+  color: #7a5c00;
+}
+
+.info-section.open .info-section-header {
+  background: #f0f0f8;
+}
+
+.info-section.highlight.open .info-section-header {
+  background: #fff3b0;
+}
+
+.info-chevron {
+  font-size: 12px;
+  color: #888;
+}
+
+.info-section-body {
+  padding: 4px 20px 16px 20px;
+  color: #444;
+  line-height: 1.6;
+  font-size: 14px;
+  animation: infoFadeIn 0.2s ease;
+}
+
+@keyframes infoFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.info-section-body ul {
+  margin: 6px 0;
+  padding-left: 20px;
+}
+
+.info-section-body li {
+  margin-bottom: 6px;
+}
+
+.info-section-body p {
+  margin: 6px 0;
+}
+
+.info-subheading {
+  font-weight: 600;
+  color: #667eea;
+  margin-top: 12px !important;
+}

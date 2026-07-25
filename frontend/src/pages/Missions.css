@@ -1,0 +1,137 @@
+.missions-container {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.missions-area {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.missions-area h2 {
+  color: #667eea;
+  margin-bottom: 10px;
+  font-size: 32px;
+  text-align: center;
+}
+
+.missions-subtitle {
+  color: #888;
+  margin-bottom: 30px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.loading-missions {
+  text-align: center;
+  color: #888;
+  padding: 30px 0;
+}
+
+.missions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mission-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 18px 22px;
+  background: #fafaff;
+  transition: opacity 0.2s;
+}
+
+.mission-card.claimed {
+  opacity: 0.5;
+  background: #f2f2f2;
+}
+
+.mission-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mission-description {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.mission-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.progress-bar-track {
+  flex: 1;
+  height: 10px;
+  background: #e6e6f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 13px;
+  color: #888;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mission-reward {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffa000;
+}
+
+.claim-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.claim-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+}
+
+.claim-btn:disabled {
+  background: #ddd;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
