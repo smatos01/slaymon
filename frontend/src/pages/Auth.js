@@ -1,3 +1,4 @@
+import { API_URL } from '../config';
 import React, { useState } from 'react';
 import './Auth.css';
 
@@ -13,7 +14,9 @@ function Auth({ onLogin }) {
     setError('');
     setLoading(true);
 
-    const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+    const endpoint = isLogin
+      ? `${API_URL}/api/auth/login`
+      : `${API_URL}/api/auth/register`;
 
     try {
       const response = await fetch(endpoint, {
