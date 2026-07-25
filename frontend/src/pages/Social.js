@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Social.css';
+import { API_URL } from '../config';
 
 const MAX_LENGTH = 256;
 
@@ -22,7 +23,7 @@ function Social({ token, onBack }) {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('/api/social/posts', {
+      const response = await fetch(`${API_URL}/api/social/posts`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await response.json();
@@ -42,7 +43,7 @@ function Social({ token, onBack }) {
     setError('');
     setPosting(true);
     try {
-      const response = await fetch('/api/social/posts', {
+      const response = await fetch(`${API_URL}/api/social/posts`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ content })
@@ -66,7 +67,7 @@ function Social({ token, onBack }) {
 
   const handleLike = async (postId) => {
     try {
-      const response = await fetch(`/api/social/posts/${postId}/like`, {
+      const response = await fetch(`${API_URL}/api/social/posts/${postId}/like`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -94,7 +95,7 @@ function Social({ token, onBack }) {
 
     setCommentSubmitting(prev => ({ ...prev, [postId]: true }));
     try {
-      const response = await fetch(`/api/social/posts/${postId}/comments`, {
+      const response = await fetch(`${API_URL}/api/social/posts/${postId}/comments`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ content })

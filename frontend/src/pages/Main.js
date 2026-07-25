@@ -11,6 +11,7 @@ import MemoryGame from './MemoryGame';
 import Social from './Social';
 import InfoModal from './InfoModal';
 import AudioPlayer from './AudioPlayer';
+import { API_URL } from '../config';
 
 function Main({ token, userId, username, onLogout }) {
   const [currentPage, setCurrentPage] = useState('home');
@@ -26,7 +27,7 @@ function Main({ token, userId, username, onLogout }) {
 
   const fetchProfile = async () => {
     try {
-      const response = await fetch('/api/user/profile', {
+      const response = await fetch(`${API_URL}/api/user/profile`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();

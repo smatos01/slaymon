@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Missions.css';
+import { API_URL } from '../config';
 
 function Missions({ token, onBack, onCreditsChanged }) {
   const [missions, setMissions] = useState([]);
@@ -13,7 +14,7 @@ function Missions({ token, onBack, onCreditsChanged }) {
 
   const fetchMissions = async () => {
     try {
-      const response = await fetch('/api/missions', {
+      const response = await fetch(`${API_URL}/api/missions`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await response.json();
@@ -29,7 +30,7 @@ function Missions({ token, onBack, onCreditsChanged }) {
     setError('');
     setClaimingId(missionId);
     try {
-      const response = await fetch(`/api/missions/${missionId}/claim`, {
+      const response = await fetch(`${API_URL}/api/missions/${missionId}/claim`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` }
       });

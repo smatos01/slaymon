@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Store.css';
+import { API_URL } from '../config';
 
 const RARITY_COST = { 1: 1, 2: 5, 3: 10, 4: 20 };
 
@@ -19,7 +20,7 @@ function Store({ token, onBack, onGemsChanged }) {
 
   const fetchCollection = async () => {
     try {
-      const response = await fetch('/api/user/collection', {
+      const response = await fetch(`${API_URL}/api/user/collection`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await response.json();
@@ -33,7 +34,7 @@ function Store({ token, onBack, onGemsChanged }) {
 
   const fetchGems = async () => {
     try {
-      const response = await fetch('/api/user/profile', {
+      const response = await fetch(`${API_URL}/api/user/profile`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await response.json();
@@ -69,7 +70,7 @@ function Store({ token, onBack, onGemsChanged }) {
     setBuying(true);
 
     try {
-      const response = await fetch(`/api/store/buy/${selectedCard.id}`, {
+      const response = await fetch(`${API_URL}/api/store/buy/${selectedCard.id}`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` }
       });

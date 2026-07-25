@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './MemoryGame.css';
+import { API_URL } from '../config';
 
 const CARD_BACK_URL = 'http://localhost:5000/memory/card-back.png';
 const MISMATCH_DELAY_MS = 900;
@@ -22,7 +23,7 @@ function MemoryGame({ token, onBack, onCreditsChanged }) {
 
   const fetchStatus = async () => {
     try {
-      const response = await fetch('/api/game/memory/status', {
+      const response = await fetch(`${API_URL}/api/game/memory/status`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await response.json();
@@ -56,7 +57,7 @@ function MemoryGame({ token, onBack, onCreditsChanged }) {
     setError('');
     setSubmitting(true);
     try {
-      const response = await fetch('/api/game/memory/start', {
+      const response = await fetch(`${API_URL}/api/game/memory/start`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -89,7 +90,7 @@ function MemoryGame({ token, onBack, onCreditsChanged }) {
     setError('');
 
     try {
-      const response = await fetch('/api/game/memory/reveal', {
+      const response = await fetch(`${API_URL}/api/game/memory/reveal`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ position })

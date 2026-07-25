@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './CardDex.css';
+import { API_URL } from '../config';
 
 function CardDex({ token, onBack }) {
   const [cards, setCards] = useState([]);
@@ -13,7 +14,7 @@ function CardDex({ token, onBack }) {
 
   const fetchCollection = async () => {
     try {
-      const response = await fetch('/api/user/collection', {
+      const response = await fetch(`${API_URL}/api/user/collection`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './DrawCard.css';
+import { API_URL } from '../config';
 
 function DrawCard({ token, onBack, onCardDrawn }) {
   const [card, setCard] = useState(null);
@@ -16,7 +17,7 @@ function DrawCard({ token, onBack, onCardDrawn }) {
     setCard(null);
 
     try {
-      const response = await fetch('/api/user/draw', {
+      const response = await fetch(`${API_URL}/api/user/draw`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` }
       });

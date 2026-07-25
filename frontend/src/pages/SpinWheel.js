@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './SpinWheel.css';
+import { API_URL } from '../config';
+
 
 // Fixed colors by structural role (index), independent of the day-specific labels
 const SEGMENT_COLORS = [
@@ -38,7 +40,7 @@ function SpinWheel({ token, onBack, onCreditsChanged }) {
 
   const fetchStatus = async () => {
     try {
-      const response = await fetch('/api/wheel/status', {
+      const response = await fetch(`${API_URL}/api/wheel/status`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await response.json();
@@ -60,7 +62,7 @@ function SpinWheel({ token, onBack, onCreditsChanged }) {
     setSpinning(true);
 
     try {
-      const response = await fetch('/api/wheel/spin', {
+      const response = await fetch(`${API_URL}/api/wheel/spin`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` }
       });

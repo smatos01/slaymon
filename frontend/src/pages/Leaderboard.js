@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Leaderboard.css';
+import { API_URL } from '../config';
 
 function Leaderboard({ token, onBack }) {
   const [leaderboard, setLeaderboard] = useState([]);
@@ -11,7 +12,7 @@ function Leaderboard({ token, onBack }) {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await fetch('/api/leaderboard', {
+      const response = await fetch(`${API_URL}/api/leaderboard`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();

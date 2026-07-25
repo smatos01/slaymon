@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './GameGuess.css';
+import { API_URL } from '../config';
 
 function GameGuess({ token, onBack, onCreditsChanged }) {
   const [status, setStatus] = useState(null);
@@ -18,7 +19,7 @@ function GameGuess({ token, onBack, onCreditsChanged }) {
 
   const fetchStatus = async () => {
     try {
-      const response = await fetch('/api/game/guess/status', {
+      const response = await fetch(`${API_URL}/api/game/guess/status`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await response.json();
@@ -35,7 +36,7 @@ function GameGuess({ token, onBack, onCreditsChanged }) {
     setError('');
     setSubmitting(true);
     try {
-      const response = await fetch('/api/game/guess/start', {
+      const response = await fetch(`${API_URL}/api/game/guess/start`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -73,7 +74,7 @@ function GameGuess({ token, onBack, onCreditsChanged }) {
     setSubmitting(true);
 
     try {
-      const response = await fetch('/api/game/guess/guess', {
+      const response = await fetch(`${API_URL}/api/game/guess/guess`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ guessNumber: num })
