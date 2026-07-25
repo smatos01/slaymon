@@ -96,7 +96,7 @@ function CardDex({ token, onBack }) {
               className={`card-item ${card.quantity === 0 ? 'greyed-out' : ''}`}
               onClick={() => card.quantity > 0 && setSelectedCard(card)}
             >
-              <img src={`http://localhost:5000/cards/${card.image_file || card.image}`} alt={card.name} />
+              <img src={`${API_URL}/cards/${card.image_file || card.image}`} alt={card.name} />
               {card.quantity > 0 && (
                 <div className="card-quantity">{card.quantity}</div>
               )}
@@ -109,7 +109,7 @@ function CardDex({ token, onBack }) {
         <div className="modal-overlay" onClick={() => setSelectedCard(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={() => setSelectedCard(null)}>✕</button>
-            <img src={`http://localhost:5000/cards/${selectedCard.image_file}`} alt={selectedCard.name} />
+            <img src={`${API_URL}/cards/${selectedCard.image_file}`} alt={selectedCard.name} />
             <div className="card-details">
               <h3>{selectedCard.name}</h3>
               <p className="card-type" style={{ color: getRarityColor(selectedCard.rarity) }}>

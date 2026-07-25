@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './MemoryGame.css';
 import { API_URL } from '../config';
 
-const CARD_BACK_URL = 'http://localhost:5000/memory/card-back.png';
+const CARD_BACK_URL = `${API_URL}/memory/card-back.png`;
 const MISMATCH_DELAY_MS = 900;
 
 function MemoryGame({ token, onBack, onCreditsChanged }) {
@@ -184,7 +184,7 @@ function MemoryGame({ token, onBack, onCreditsChanged }) {
                   onClick={() => handleFlip(position)}
                 >
                   <img
-                    src={faceUp ? `http://localhost:5000/memory/${images[position]}.png` : CARD_BACK_URL}
+                    src={faceUp ? `${API_URL}/memory/${images[position]}.png` : CARD_BACK_URL}
                     alt={faceUp ? images[position] : 'Face-down card'}
                   />
                 </div>

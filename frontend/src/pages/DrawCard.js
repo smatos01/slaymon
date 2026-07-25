@@ -103,7 +103,7 @@ function DrawCard({ token, onBack, onCardDrawn }) {
         {card && !isDrawing && (
           <div className="card-display">
             {isNew && <div className="new-banner">🌟 NEW 🌟</div>}
-            <img src={`http://localhost:5000/cards/${card.image || card.image_file}`} alt={card.name} />
+            <img src={`${API_URL}/cards/${card.image || card.image_file}`} alt={card.name} />
             <div className="card-info">
               <h3>{card.name}</h3>
               <p className="type">{card.type}</p>

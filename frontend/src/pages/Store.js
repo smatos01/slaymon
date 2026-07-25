@@ -142,7 +142,7 @@ function Store({ token, onBack, onGemsChanged }) {
                 setSelectedCard(card);
               }}
             >
-              <img src={`http://localhost:5000/cards/${card.image_file}`} alt={card.name} />
+              <img src={`${API_URL}/cards/${card.image_file}`} alt={card.name} />
               <div className="card-quantity">{card.quantity}</div>
             </div>
           ))}
